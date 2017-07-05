@@ -1,0 +1,8 @@
+parameters:
+    event_store_manager.class: SimpleEventStoreManager\Bundle\Service\Manager
+
+services:
+    event_store_manager:
+        class: "%event_store_manager.class%"
+        arguments:
+            - "%event_store_manager%"
