@@ -1,4 +1,4 @@
-event_store_manager:
+simple_event_store_manager:
     resource: '@EventStoreManagerBundle/Controller/'
     type: annotation
     prefix: /_events/
