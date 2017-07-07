@@ -24,8 +24,11 @@
         }
     ],
     "require": {
-        "symfony/symfony": "^2.8|3.*|4.*",
-        "mauretto78/simple-event-store-manager": "^1.0"
+        "mauretto78/simple-event-store-manager": "^1.0",
+        "symfony/http-kernel": "~2.3|~3.0",
+        "symfony/dependency-injection": "~2.3|~3.0",
+        "symfony/yaml": "~2.3|~3.0",
+        "symfony/config": "~2.3|~3.0"
     },
     "autoload": {
         "psr-4": {
