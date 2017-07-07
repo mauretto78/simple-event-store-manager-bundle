@@ -28,22 +28,51 @@ simple_event_store_manager:
 
 Please refer to [Simple EventStore Manager page](https://github.com/mauretto78/simple-event-store-manager) for more details.
 
-#### Step 3: Setup your AppKernel.php by adding the InMemoryList Bundle
+#### Step 3: Setup your AppKernel.php by adding the Simple EventStore Manager Bundle 
 
 ```php
 // ..
-$bundles[] = new SimpleEventStoreManager\Bundle\EventStoreManagerBundle();
+$bundles[] = new SimpleEventStoreManager\Bundle\SimpleEventStoreManagerBundle();
 ```
+
 #### Step 4: Setup yor routing.yml
 
 Add these lines at the bottom of your `routing.yml` file:
 
 ```yaml
 _simple_event_store_manager:
-    resource: '@SimpleEventStoreManager/Resources/config/routing.yml'
+    resource: '@SimpleEventStoreManagerBundle/Resources/config/routing.yml'
 ```
 
 ## Usage Guide ##
+
+You can use `EventsManager` in your Controllers:
+
+```php
+// ..
+
+$manager = $this->container->get('simple_event_store_manager');
+
+```
+
+Or inject it into your services and classes:
+
+```yaml
+services:
+     # ...
+
+     AppBundle\Your\Service:
+         arguments: ['@simple_event_store_manager']
+         
+```
+
+Please refer to [official documentation of Simple EventStore Manager](https://github.com/mauretto78/simple-event-store-manager) for basic usage of this Library.
+
+## API support ##
+
+An API endpoint is automatically exposed to `/_events/{page}` path; it will automatically with **25 records per page**. 
+
+When a page is complete, it will set automatically an infinite cache on it.
 
 ## Support ##
 
