@@ -680,16 +680,16 @@
         },
         {
             "name": "mauretto78/simple-event-store-manager",
-            "version": "v1.0.1",
+            "version": "v1.0.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/mauretto78/simple-event-store-manager.git",
-                "reference": "73b6588d9fe06da9aa06cacc93d0f91271748ec2"
+                "reference": "db4dc2ffec2e456425caa618486c5bf82cbbd1bc"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/mauretto78/simple-event-store-manager/zipball/73b6588d9fe06da9aa06cacc93d0f91271748ec2",
-                "reference": "73b6588d9fe06da9aa06cacc93d0f91271748ec2",
+                "url": "https://api.github.com/repos/mauretto78/simple-event-store-manager/zipball/db4dc2ffec2e456425caa618486c5bf82cbbd1bc",
+                "reference": "db4dc2ffec2e456425caa618486c5bf82cbbd1bc",
                 "shasum": ""
             },
             "require": {
@@ -734,7 +734,7 @@
                 "event sourcing",
                 "store manager"
             ],
-            "time": "2017-07-07T08:36:17+00:00"
+            "time": "2017-07-07T10:35:07+00:00"
         },
         {
             "name": "mongodb/mongodb",

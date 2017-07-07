@@ -15,6 +15,7 @@ use SimpleEventStoreManager\Application\EventsQuery;
 use SimpleEventStoreManager\Bundle\Service\Manager;
 use SimpleEventStoreManager\Infrastructure\DataTransformer\JsonEventDataTransformer;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
 
 class EventStoreManagerBundleController extends Controller
@@ -22,7 +23,7 @@ class EventStoreManagerBundleController extends Controller
     /**
      * @Route("/{page}", requirements={"page" = "\d+"}, defaults={"page" = null}) , name="event_store_manager_index")
      */
-    public function indexAction($page = null)
+    public function indexAction(Request $request, $page = null)
     {
         $currentPage = ($page) ?: 1;
 
@@ -32,7 +33,9 @@ class EventStoreManagerBundleController extends Controller
         $eventsQuery = new EventsQuery(
             $eventStore,
             new JsonEventDataTransformer(
-                SerializerBuilder::create()->build()
+                SerializerBuilder::create()->build(),
+                $request,
+                true
             )
         );
 
