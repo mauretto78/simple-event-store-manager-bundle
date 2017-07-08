@@ -11,9 +11,9 @@
 namespace SimpleEventStoreManager\Bundle\Controller;
 
 use JMS\Serializer\SerializerBuilder;
-use SimpleEventStoreManager\Application\EventsQuery;
+use SimpleEventStoreManager\Application\EventQuery;
 use SimpleEventStoreManager\Bundle\Service\Manager;
-use SimpleEventStoreManager\Infrastructure\DataTransformer\JsonEventDataTransformer;
+use SimpleEventStoreManager\Infrastructure\DataTransformers\JsonEventDataTransformer;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
@@ -30,7 +30,7 @@ class EventStoreManagerBundleController extends Controller
         /** @var Manager $manager */
         $manager = $this->container->get('simple_event_store_manager');
         $eventStore = $manager->getMananger()->eventStore();
-        $eventsQuery = new EventsQuery(
+        $eventsQuery = new EventQuery(
             $eventStore,
             new JsonEventDataTransformer(
                 SerializerBuilder::create()->build(),
@@ -39,6 +39,6 @@ class EventStoreManagerBundleController extends Controller
             )
         );
 
-        return $eventsQuery->query($currentPage);
+        return $eventsQuery->paginate($currentPage);
     }
 }

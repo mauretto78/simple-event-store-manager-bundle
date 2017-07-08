@@ -10,12 +10,12 @@
 
 namespace SimpleEventStoreManager\Bundle\Service;
 
-use SimpleEventStoreManager\Application\EventsManager;
+use SimpleEventStoreManager\Application\EventManager;
 
 class Manager
 {
     /**
-     * @var EventsManager
+     * @var EventManager
      */
     private $manager;
 
@@ -34,10 +34,10 @@ class Manager
      */
     private function setMananger($config)
     {
-        $this->manager = new EventsManager($config['driver'], $config['parameters']);
+        $this->manager = new EventManager($config['driver'], $config['parameters']);
     }
     /**
-     * @return EventsManager
+     * @return EventManager
      */
     public function getMananger()
     {
