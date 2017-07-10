@@ -70,7 +70,7 @@ Please refer to [official documentation of Simple EventStore Manager](https://gi
 
 ## API support ##
 
-An API endpoint is automatically exposed to `/_events/{page}` path; it will automatically with **25 records per page**. 
+An API endpoint is automatically exposed to `/_events/{page}` path; it will automatically paginated with **25 records per page**. 
 
 When a page is complete, it will set automatically an infinite cache on it.
 
