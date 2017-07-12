@@ -18,6 +18,7 @@ Here is an example:
 # Simple EventStore Manager
 simple_event_store_manager:
     driver: 'mongo'
+    api_format: 'yaml'
     parameters:
         host: 'localhost'
         username: ~
@@ -25,6 +26,8 @@ simple_event_store_manager:
         database: 'eventstore_demo'
         port: '27017'
 ```
+
+`api_format` is an optional parameter; you can choose between `json`, `xml` or `yaml`. 
 
 Please refer to [Simple EventStore Manager page](https://github.com/mauretto78/simple-event-store-manager) for more details.
 
@@ -70,7 +73,7 @@ Please refer to [official documentation of Simple EventStore Manager](https://gi
 
 ## API support ##
 
-An API endpoint is automatically exposed to `/_events/{page}` path; it will automatically paginated with **25 records per page**. 
+An API endpoint is automatically exposed to `/_events/{page}` path; it will automatically with **25 records per page**. 
 
 When a page is complete, it will set automatically an infinite cache on it.
 

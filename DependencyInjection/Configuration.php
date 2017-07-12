@@ -26,24 +26,35 @@ class Configuration implements ConfigurationInterface
         $rootNode = $treeBuilder->root('simple_event_store_manager');
         $rootNode
             ->children()
-            ->enumNode('driver')
-            ->values([
-                'in-memory',
-                'mongo',
-                'pdo',
-                'redis',
-            ])
-            ->defaultValue('mongo')
-            ->isRequired()
-            ->end()
+                ->enumNode('driver')
+                    ->values([
+                        'in-memory',
+                        'mongo',
+                        'pdo',
+                        'redis',
+                    ])
+                    ->defaultValue('mongo')
+                    ->isRequired()
+                ->end()
             ->end()
             ->children()
-            ->arrayNode('parameters')
-            ->isRequired()
-            ->prototype('variable')
+                ->enumNode('api_format')
+                    ->values([
+                        'json',
+                        'xml',
+                        'yaml',
+                    ])
+                    ->defaultValue('json')
+                ->end()
             ->end()
+            ->children()
+                ->arrayNode('parameters')
+                    ->isRequired()
+                    ->prototype('variable')
+                ->end()
             ->end()
         ;
+
         return $treeBuilder;
     }
 }
