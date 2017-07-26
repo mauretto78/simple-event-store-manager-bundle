@@ -1,5 +1,9 @@
 # Simple EventStore Manager Bundle #
 
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/421ed4fab69c4702ab3d2fec40e3aaa4)](https://www.codacy.com/app/mauretto78/simple-event-store-manager-bundle?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=mauretto78/simple-event-store-manager-bundle&amp;utm_campaign=Badge_Grade)
+[![license](https://img.shields.io/github/license/mauretto78/simple-event-store-manager-bundle.svg)]()
+[![Packagist](https://img.shields.io/packagist/v/mauretto78/simple-event-store-manager-bundle.svg)]()
+
 This is the official Symfony bundle for [Simple EventStore Manager package](https://github.com/mauretto78/simple-event-store-manager).
 
 ## Install Guide ##
@@ -59,6 +63,15 @@ You can use `EventsManager` in your Controllers:
 // ..
 
 $manager = $this->container->get('simple_event_store_manager');
+$eventManager = $manager->getMananger();
+
+// store events in an aggregate
+$eventManager->storeEvents(
+    'name-of-your-aggregate',
+    [
+        ...
+    ]
+);
 
 ```
 
