@@ -1,5 +1,7 @@
 # Simple EventStore Manager Bundle #
 
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/421ed4fab69c4702ab3d2fec40e3aaa4)](https://www.codacy.com/app/mauretto78/simple-event-store-manager-bundle?utm_source=github.com&utm_medium=referral&utm_content=mauretto78/simple-event-store-manager-bundle&utm_campaign=badger)
+
 This is the official Symfony bundle for [Simple EventStore Manager package](https://github.com/mauretto78/simple-event-store-manager).
 
 ## Install Guide ##
