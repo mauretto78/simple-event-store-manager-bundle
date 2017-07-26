@@ -36,8 +36,6 @@ class Configuration implements ConfigurationInterface
                     ->defaultValue('mongo')
                     ->isRequired()
                 ->end()
-            ->end()
-            ->children()
                 ->enumNode('api_format')
                     ->values([
                         'json',
@@ -46,16 +44,14 @@ class Configuration implements ConfigurationInterface
                     ])
                     ->defaultValue('json')
                 ->end()
-            ->end()
-            ->children()
                 ->arrayNode('parameters')
                     ->isRequired()
                     ->prototype('variable')
+                    ->end()
                 ->end()
-            ->end()
-            ->children()
                 ->arrayNode('elastic')
                     ->prototype('variable')
+                    ->end()
                 ->end()
             ->end()
         ;
