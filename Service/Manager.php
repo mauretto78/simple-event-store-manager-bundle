@@ -34,8 +34,13 @@ class Manager
      */
     private function setMananger($config)
     {
-        $this->manager = new EventManager($config['driver'], $config['parameters']);
+        $this->manager = new EventManager(
+            $config['driver'],
+            $config['parameters'],
+            ($config['elastic']) ? ['elastic' => true, 'elastic_hosts' => $config['elastic']] : null
+        );
     }
+
     /**
      * @return EventManager
      */

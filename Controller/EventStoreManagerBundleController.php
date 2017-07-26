@@ -20,18 +20,21 @@ use Symfony\Component\Routing\Annotation\Route;
 class EventStoreManagerBundleController extends Controller
 {
     /**
-     * @Route("/{page}", requirements={"page" = "\d+"}, defaults={"page" = null}) , name="event_store_manager_index")
+     * @Route("/{aggregate}/{page}",
+     *     requirements={"page" = "\d+"},
+     *     defaults={"page" = null}) ,
+     *     name="event_store_manager_index")
      */
-    public function indexAction(Request $request, $page = null)
+    public function aggregateAction(Request $request, $aggregate, $page = null)
     {
         /** @var Manager $manager */
         $manager = $this->container->get('simple_event_store_manager');
-        $eventStore = $manager->getMananger()->eventStore();
+        $eventManager = $manager->getMananger();
 
         $config = $this->container->getParameter('simple_event_store_manager');
         $dataTransformer = 'SimpleEventStoreManager\\Infrastructure\\DataTransformers\\'.ucfirst($config['api_format']).'EventDataTransformer';
         $eventsQuery = new EventQuery(
-            $eventStore,
+            $eventManager,
             new $dataTransformer(
                 SerializerBuilder::create()->build(),
                 $request,
@@ -39,6 +42,6 @@ class EventStoreManagerBundleController extends Controller
             )
         );
 
-        return $eventsQuery->paginate(($page) ?: 1);
+        return $eventsQuery->aggregate($aggregate, ($page) ?: 1);
     }
 }

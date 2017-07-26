@@ -25,9 +25,13 @@ simple_event_store_manager:
         password: ~
         database: 'eventstore_demo'
         port: '27017'
+    elastic:
+        host: 'localhost'
+        port: '9200'
 ```
 
-`api_format` is an optional parameter; you can choose between `json`, `xml` or `yaml`. 
+* `api_format` is an optional parameter; you can choose between `json` (default), `xml` or `yaml`
+* `elastic` is an optional parameter; you can send your events to a Elastic server
 
 Please refer to [Simple EventStore Manager page](https://github.com/mauretto78/simple-event-store-manager) for more details.
 
@@ -73,7 +77,7 @@ Please refer to [official documentation of Simple EventStore Manager](https://gi
 
 ## API support ##
 
-An API endpoint is automatically exposed to `/_events/{page}` path; it will automatically with **25 records per page**. 
+An API endpoint is automatically exposed to `/_events/{aggregate}/{page}` route; it will automatically paged with **25 records per page**. 
 
 When a page is complete, it will set automatically an infinite cache on it.
 

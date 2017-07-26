@@ -53,6 +53,11 @@ class Configuration implements ConfigurationInterface
                     ->prototype('variable')
                 ->end()
             ->end()
+            ->children()
+                ->arrayNode('elastic')
+                    ->prototype('variable')
+                ->end()
+            ->end()
         ;
 
         return $treeBuilder;
