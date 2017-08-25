@@ -1,6 +1,6 @@
 <?php
 /**
- * This file is part of the Simple EventStore Manager package.
+ * This file is part of the Simple EventStore EventStoreManager package.
  *
  * (c) Mauro Cassani<https://github.com/mauretto78>
  *

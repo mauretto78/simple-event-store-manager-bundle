@@ -1,5 +1,5 @@
 parameters:
-    simple_event_store_manager.class: SimpleEventStoreManager\Bundle\Service\Manager
+    simple_event_store_manager.class: SimpleEventStoreManager\Bundle\Service\EventStoreManager
 
 services:
     simple_event_store_manager:

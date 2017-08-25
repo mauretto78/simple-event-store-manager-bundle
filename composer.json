@@ -24,7 +24,7 @@
         }
     ],
     "require": {
-        "mauretto78/simple-event-store-manager": "^1.2",
+        "mauretto78/simple-event-store-manager": "^2.0",
         "symfony/http-kernel": "~2.3|~3.0",
         "symfony/dependency-injection": "~2.3|~3.0",
         "symfony/yaml": "~2.3|~3.0",

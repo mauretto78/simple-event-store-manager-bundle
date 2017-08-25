@@ -1,6 +1,6 @@
 <?php
 /**
- * This file is part of the Simple EventStore Manager package.
+ * This file is part of the Simple EventStore EventStoreManager package.
  *
  * (c) Mauro Cassani<https://github.com/mauretto78>
  *
@@ -43,6 +43,13 @@ class Configuration implements ConfigurationInterface
                         'yaml',
                     ])
                     ->defaultValue('json')
+                ->end()
+                ->enumNode('return_type')
+                ->values([
+                    'array',
+                    'object'
+                ])
+                ->defaultValue('array')
                 ->end()
                 ->arrayNode('parameters')
                     ->isRequired()

@@ -1,6 +1,6 @@
 <?php
 /**
- * This file is part of the Simple EventStore Manager package.
+ * This file is part of the Simple EventStore EventStoreManager package.
  *
  * (c) Mauro Cassani<https://github.com/mauretto78>
  *
@@ -14,5 +14,5 @@ use Symfony\Component\HttpKernel\Bundle\Bundle;
 
 class SimpleEventStoreManagerBundle extends Bundle
 {
-    const VERSION = '1.0.1';
+    const VERSION = '2.0.0ß';
 }

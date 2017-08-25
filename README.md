@@ -29,11 +29,13 @@ simple_event_store_manager:
         password: ~
         database: 'eventstore_demo'
         port: '27017'
+    return_type: 'array'   
     elastic:
         host: 'localhost'
         port: '9200'
 ```
 
+* `return_type` is an optional parameter; you can choose between array or object to return aggregates
 * `api_format` is an optional parameter; you can choose between `json` (default), `xml` or `yaml`
 * `elastic` is an optional parameter; you can send your events to a Elastic server
 
@@ -63,7 +65,7 @@ You can use `EventsManager` in your Controllers:
 // ..
 
 $manager = $this->container->get('simple_event_store_manager');
-$eventManager = $manager->getMananger();
+$eventManager = $manager->getEventMananger();
 
 // store events in an aggregate
 $eventManager->storeEvents(
@@ -72,6 +74,14 @@ $eventManager->storeEvents(
         ...
     ]
 );
+
+// get event streams
+$eventQuery = $eventStoreManager->getEventQuery();
+
+$stream = $eventQuery->fromAggregate('Your aggregate');
+foreach ($stream as $event){
+    // ..
+}
 
 ```
 
