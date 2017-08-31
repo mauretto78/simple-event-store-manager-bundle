@@ -14,5 +14,5 @@ use Symfony\Component\HttpKernel\Bundle\Bundle;
 
 class SimpleEventStoreManagerBundle extends Bundle
 {
-    const VERSION = '2.0.0ß';
+    const VERSION = '2.0.1';
 }
