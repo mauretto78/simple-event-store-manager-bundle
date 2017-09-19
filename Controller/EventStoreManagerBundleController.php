@@ -34,7 +34,7 @@ class EventStoreManagerBundleController extends Controller
 
         $config = $this->container->getParameter('simple_event_store_manager');
         $dataTransformer = 'SimpleEventStoreManager\\Infrastructure\\DataTransformers\\'.ucfirst($config['api_format']).'EventDataTransformer';
-        $eventsQuery = new EventRepresentation(
+        $eventRepresentation = new EventRepresentation(
             $eventManager,
             new $dataTransformer(
                 SerializerBuilder::create()->build(),
@@ -43,6 +43,6 @@ class EventStoreManagerBundleController extends Controller
             )
         );
 
-        return $eventsQuery->aggregate($aggregate, ($page) ?: 1);
+        return $eventRepresentation->aggregate($aggregate, ($page) ?: 1);
     }
 }
